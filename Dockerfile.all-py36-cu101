@@ -4,6 +4,9 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     PIP_INSTALL="python -m pip install --upgrade --no-cache-dir --retries 10 --timeout 60" && \
     GIT_CLONE="git clone --depth 10" && \
     \
+    #
+    # postgres
+    #
     apt-get update && \
      DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
        libpq-dev \
@@ -18,5 +21,8 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
    cd ~/sqlalchemy && \
    python setup.py install && \
    cd .. && \  
-   rm -rf ~/sqlalchemy
-
+   rm -rf ~/sqlalchemy && \
+   #
+   #LATEX support (another 500MB)
+   # 
+   apt-get install -y texlive-xetex
