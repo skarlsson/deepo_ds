@@ -17,12 +17,18 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     $PIP_INSTALL \
         psycopg2 \
         && \
-   $GIT_CLONE https://github.com/sqlalchemy/sqlalchemy.git ~/sqlalchemy && \
-   cd ~/sqlalchemy && \
-   python setup.py install && \
-   cd .. && \  
-   rm -rf ~/sqlalchemy && \
-   #
-   #LATEX support (another 500MB)
-   # 
-   apt-get install -y texlive-xetex
+    $GIT_CLONE https://github.com/sqlalchemy/sqlalchemy.git ~/sqlalchemy && \
+    cd ~/sqlalchemy && \
+    python setup.py install && \
+    cd .. && \  
+    rm -rf ~/sqlalchemy && \
+    #
+    #LATEX support (another 500MB)
+    # 
+    apt-get install -y texlive-xetex && \
+    #
+    # 
+    $PIP_INSTALL \
+      git+https://github.com/manahl/arctic.git \
+      git+https://github.com/quandl/quandl-python 
+

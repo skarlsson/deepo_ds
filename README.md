@@ -7,7 +7,8 @@ postgres support, psycopg2, sqlalchemy
 
 
 
-docker build -f /home/saka/claes/deepo_ds/Dockerfile.all-jupyter -t deepo.all.jupyter . 
+docker build -f ${PWD}/Dockerfile.all-jupyter    -t deepo.all.jupyter .
+docker build -f ${PWD}/Dockerfile.all-py36-cu101 -t deepo.all-py36-cu101 .  
   
 
 docker run -d -it -p 8888:8888 --ipc=host --name=jupypter-0 deepo.all.jupyter jupyter notebook --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token= --notebook-dir='/root'
