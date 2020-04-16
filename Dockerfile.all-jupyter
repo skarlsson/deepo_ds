@@ -29,6 +29,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     # 
     $PIP_INSTALL \
        git+https://github.com/manahl/arctic.git \
-       git+https://github.com/quandl/quandl-python 
+       git+https://github.com/quandl/quandl-python \
+       QuantLib
 
 
