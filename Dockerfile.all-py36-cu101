@@ -37,6 +37,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
        python-snappy \
        pyarrow \
        boto3 \
+       s3fs \
        QuantLib \
        && \
     \
