@@ -38,11 +38,14 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
        pyarrow \
        boto3 \
        s3fs \
-       QuantLib \
-       && \
-    \
+       QuantLib
+       
+    
     #   dremio
-    apt-get install -y unixodbc unixodbc-dev && \
+RUN PIP_INSTALL="python -m pip install --upgrade --no-cache-dir --retries 10 --timeout 60" && \
+    apt-get install -y unixodbc unixodbc-dev cpio rpm2cpio && \
+    wget http://download.dremio.com/odbc-driver/1.4.2.1003/dremio-odbc-1.4.2.1003-1.x86_64.rpm && \
+    rpm2cpio dremio-odbc-1.4.2.1003-1.x86_64.rpm | cpio -idmv && \
     $PIP_INSTALL \
         pyodbc \
         && \
