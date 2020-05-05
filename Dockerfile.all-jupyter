@@ -38,6 +38,11 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
        QuantLib \
        && \
     \
+#   dremio
+    apt-get install -y unixodbc unixodbc-dev && \
+    $PIP_INSTALL \
+        pyodbc \
+        && \
     $PIP_INSTALL "dask[complete]"
     #
     #   git+https://github.com/dask/fastparquet 
