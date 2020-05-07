@@ -56,6 +56,9 @@ RUN PIP_INSTALL="python -m pip install --upgrade --no-cache-dir --retries 10 --t
     #$PIP_INSTALL \
     #   zipline
     #
+#python driver for clickhouse
+RUN PIP_INSTALL="python -m pip install --upgrade --no-cache-dir --retries 10 --timeout 60" && \
+    $PIP_INSTALL clickhouse-driver[lz4]
 
 
 
